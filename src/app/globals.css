@@ -19,3 +19,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.vertical-text {
+  writing-mode: vertical-rl; /* Zorgt ervoor dat tekst verticaal is */
+  transform: rotate(180deg); /* Draait de tekst 180 graden */
+  font-size: 2rem; /* Maak het lettertype groter */
+  text-align: center; /* Zorgt ervoor dat de tekst gecentreerd is */
+  margin-left: 80px; /* Verplaats de tekst iets naar rechts */
+}
