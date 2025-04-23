@@ -32,7 +32,7 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <img
-            src="/assets/images/duran.svg"
+            src="/assets/images/DURAN.svg"
             alt="Duran Logistiek Logo"
             style={{ height: "155px" }} 
             className="w-auto drop-shadow-md"
