@@ -34,7 +34,8 @@ export default function Header() {
           <img
             src="/assets/images/duran.svg"
             alt="Duran Logistiek Logo"
-            style={{ height: "200px", width: "200px" }}
+            style={{ height: "155px" }} 
+            className="w-auto drop-shadow-md"
           />
         </Link>
 
