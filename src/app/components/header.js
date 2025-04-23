@@ -1,35 +1,24 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { usePathname } from "next/navigation"; // Voor detectie van de actieve pagina
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Scroll-detectie voor het aanpassen van de achtergrond
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 100);
     };
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header
@@ -40,52 +29,60 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between h-20 px-6">
-        {/* Logo - Links */}
-        <a href="/" className="flex items-center">
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
           <img
             src="/assets/images/duran.svg"
             alt="Duran Logistiek Logo"
             style={{ height: "200px", width: "200px" }}
           />
-        </a>
+        </Link>
 
-        {/* Navigatie - Midden */}
+        {/* Desktop navigatie */}
         <nav className="flex-grow hidden md:flex justify-center space-x-12 text-lg">
-          <a
+          <Link
             href="/"
             className={`hover:text-gray-300 ${
               pathname === "/" ? "font-bold" : "font-light"
             }`}
           >
             Home
-          </a>
-          <a
-            href="/transport"
+          </Link>
+          <Link
+            href="/Transport"
             className={`hover:text-gray-300 ${
-              pathname === "/transport" ? "font-bold" : "font-light"
+              pathname === "/Transport" ? "font-bold" : "font-light"
             }`}
           >
             Transport
-          </a>
-          <a
+          </Link>
+          <Link
             href="/over-ons"
             className={`hover:text-gray-300 ${
               pathname === "/over-ons" ? "font-bold" : "font-light"
             }`}
           >
             Over ons
-          </a>
-          <a
-            href="/contact"
+          </Link>
+          <Link
+            href="/Contact"
             className={`hover:text-gray-300 ${
-              pathname === "/contact" ? "font-bold" : "font-light"
+              pathname === "/Contact" ? "font-bold" : "font-light"
             }`}
           >
             Contact
-          </a>
+          </Link>
+          <Link
+            href="/Kom-werken-bij"
+            className={`hover:text-gray-300 ${
+              pathname === "/Kom-werken-bij" ? "font-bold" : "font-light"
+            }`}
+          >
+            Kom werken bij
+          </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile menu knop */}
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
@@ -100,57 +97,68 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Witte lijn onderaan de header, met margin-top */}
+      {/* Onderlijn */}
       <div className="border-t border-white mt-2"></div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobiele dropdown menu */}
       {menuOpen && (
         <div className="md:hidden bg-black text-white w-full py-4 px-6">
           <nav>
             <ul className="space-y-4 text-lg">
               <li>
-                <a
+                <Link
                   href="/"
+                  onClick={closeMenu}
                   className={`hover:text-gray-300 block ${
                     pathname === "/" ? "font-bold" : "font-light"
                   }`}
-                  onClick={closeMenu}
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/transport"
-                  className={`hover:text-gray-300 block ${
-                    pathname === "/transport" ? "font-bold" : "font-light"
-                  }`}
+                <Link
+                  href="/Transport"
                   onClick={closeMenu}
+                  className={`hover:text-gray-300 block ${
+                    pathname === "/Transport" ? "font-bold" : "font-light"
+                  }`}
                 >
                   Transport
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/over-ons"
+                  onClick={closeMenu}
                   className={`hover:text-gray-300 block ${
                     pathname === "/over-ons" ? "font-bold" : "font-light"
                   }`}
-                  onClick={closeMenu}
                 >
                   Over ons
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   href="/contact"
+                  onClick={closeMenu}
                   className={`hover:text-gray-300 block ${
                     pathname === "/contact" ? "font-bold" : "font-light"
                   }`}
-                  onClick={closeMenu}
                 >
                   Contact
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/Kom-werken-bij"
+                  onClick={closeMenu}
+                  className={`hover:text-gray-300 block ${
+                    pathname === "/Kom-werken-bij" ? "font-bold" : "font-light"
+                  }`}
+                >
+                  Kom werken bij
+                </Link>
               </li>
             </ul>
           </nav>

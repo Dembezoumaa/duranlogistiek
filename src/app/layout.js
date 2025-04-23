@@ -2,6 +2,7 @@
 
 import './globals.css'; // Tailwind CSS of andere stijlen
 import Header from './components/header'; // Importeer de Header-component
+import Footer from "./components/footer";
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -24,10 +25,13 @@ export default function RootLayout({ children }) {
       <body>
         <Header /> {/* Voeg de Header toe */}
         {children} {/* Hier komen de rest van je pagina's */}
+        <Footer /> {/* Footer komt op elke pagina */}
       </body>
     </html>
+
   );
 }
+
 
 
 

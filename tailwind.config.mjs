@@ -1,9 +1,9 @@
-// tailwind.config.js
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/components/**/*.{js,ts,jsx,tsx,mdx}",
-    // eventueel extra mapjes indien nodig, maar deze zijn voor jouw projectstructuur goed
   ],
   theme: {
     extend: {
@@ -15,3 +15,13 @@ module.exports = {
   },
   plugins: [],
 };
+module.exports = {
+  content: [
+    "./src/app/**/*.{js,jsx,ts,tsx}", // Zorg dat je Tailwind toepast op de juiste mappen
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+
