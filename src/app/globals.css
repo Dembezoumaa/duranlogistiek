@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  /* Zorgt ervoor dat tekst verticaal is */
+  transform: rotate(180deg);
+  /* Draait de tekst 180 graden */
+  font-size: 2rem;
+  /* Maak het lettertype groter */
+  text-align: center;
+  /* Zorgt ervoor dat de tekst gecentreerd is */
+  margin-left: 80px;
+  /* Verplaats de tekst iets naar rechts */
+}
+
+.homebanner {
+  background-image: url('/assets/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width:767px) {
+   body{
+    background:#000;
+   }
+  .homebanner {
+    background-image: url('/assets/images/background.jpg');
+    background-size: contain;
+    background-position: center 65px;
+    background-repeat: no-repeat;
+    height: 615px;
+  }
+
+  .bannertitle {
+    margin-top: 175px !important;
+    text-align: center;
+  }
+}
